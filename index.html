@@ -306,6 +306,7 @@
         background 0.45s var(--ease),
         color 0.45s var(--ease);
       will-change: transform;
+      text-decoration: none;
     }
 
     .btn:active {
@@ -375,6 +376,20 @@
       isolation: isolate;
     }
 
+    .lens-link {
+      position: absolute;
+      inset: 0;
+      display: block;
+      border-radius: 50%;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .lens-link:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(201,162,122,0.55), 0 0 0 10px rgba(255,255,255,0.06);
+    }
+
     .halo {
       position: absolute;
       inset: -16%;
@@ -404,8 +419,18 @@
         0 0 0 1px rgba(255,255,255,0.025);
       overflow: hidden;
       transform: translate3d(0,0,0);
-      transition: transform 0.45s var(--ease);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
       will-change: transform;
+    }
+
+    .optics-wrap:hover .lens,
+    .optics-wrap:focus-within .lens {
+      box-shadow:
+        inset 0 10px 40px rgba(255,255,255,0.028),
+        inset 0 -22px 60px rgba(0,0,0,0.52),
+        0 42px 82px rgba(0,0,0,0.48),
+        0 0 0 1px rgba(255,255,255,0.025),
+        0 0 36px rgba(189,210,255,0.08);
     }
 
     .lens::before {
@@ -900,6 +925,15 @@
                 </div>
               </div>
 
+              <a
+                class="lens-link"
+                href="https://t.me/smeshenieoptiki"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Открыть канал Смещение оптики"
+                title="Открыть канал"
+              ></a>
+
               <div class="side-card">
                 <div class="side-card-label">текущий статус</div>
                 <h3 class="side-card-title">Проект собирается.</h3>
@@ -912,7 +946,7 @@
           </div>
         </div>
 
-        <div class="corner-note">@smeshenieoptiki</div>
+        <div class="corner-note">нажмите на линзу</div>
       </section>
     </main>
 
